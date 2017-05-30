@@ -38,7 +38,7 @@ class App extends Component {
         error: ''
       })
       axios
-        .post('http://api.svef.is/slack', { email: this.state.email })
+        .post('https://api.svef.is/slack', { email: this.state.email })
         .then(({ data }) => {
           if (!data.ok && data.error === 'already_invited') {
             this.setState({
