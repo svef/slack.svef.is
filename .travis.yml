@@ -10,3 +10,17 @@ cache:
 script:
   - yarn run test
   - yarn run build
+
+deploy:
+- provider: gcs
+  access_key_id: GOOGXJJZABIBB2TJGB7M
+  secret_access_key:
+    secure: fZ46jbxRRBi4adexlJE/DH0WKzIB/WRYklB4/x60rdszLK6DhgYElaYK9QAAldtmeQdRSIKgYgwX8pxfPzKzVLUciYN2rem9XyYZ9igRl2tYAxHA3GbUBk0JDi5y8ZaHfRQUGYk7SvV7qcg+I4UMa1M67hrhmP3Y/9YdgsTB9KUnA5UqC1MRECddGYRy5tWJbPFoL7rE0vt7I66FQrsTDdOExrbXiVAaUJCwN292m/XtAJX7/aGGWrGOs59/Nj1ZaQ3LEfdDZlViOYffHdnxsj6y+czlAWysEzlsVIieZnXKO5tPz/Lz+AQuvNG6+/hU0tBB4kgpO160N6KmnOV3m8JoZUZ65oL8k8ouqfd2k2km8++X9YQcfIZmgLB2tN5zfFytUMmn/997uiKqIScGLL/HerLvkhUPnI3y/zjbRJdXKNtd6FSCwFaqIn/lenVdJFNU9dCPa6ygLot6QrX7ZMWoj44l/5YimqhdpWYBxZUHI41iOqppT7zMnZLt+SRushKYr+Wxqit4BQjiwkbQO9kbQHp5moinGzOGq4oBy04Uql26lIPTZ1U7xgSlhFxZYZ5qjw7P+8lHBEeyQloTFaVNdb6oZjmmangiEoYnzYZi3m6a5oZDCwq2zrs3nOIB1xP8ciUvnRLCzu1sHnqZ3PyjAnFAmfu/svNRGY6IFqo=
+  bucket: slack.svef.is
+  skip_cleanup: true
+  local-dir: build
+  acl: public-read
+  cache_control: "no-cache"
+  on:
+    branch: master
+    repo: svef/slack.svef.is
